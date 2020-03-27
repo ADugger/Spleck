@@ -1,24 +1,27 @@
 <p id="notice"><%= notice %></p>
-
-<p>
+<div class="newRestaurant">
+<p class="leftText">
   <strong>Name:</strong>
   <%= @restaurant.name %>
 </p>
 
-<p>
+<p class="leftText">
   <strong>Location:</strong>
   <%= @restaurant.location %>
 </p>
 
-<p>
-  <strong>Upvotes:</strong>
+<p class="leftText">
+  <strong>Will Split:</strong>
   <%= @restaurant.upvotes %>
 </p>
 
-<p>
-  <strong>Downvotes:</strong>
+<p class="leftText">
+  <strong>Won't Split:</strong>
   <%= @restaurant.downvotes %>
 </p>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+<%= button_to 'Will Split', upvote_path(@restaurant) %>
+<%= button_to 'Won\'t Split', downvote_path(@restaurant) %>
+<%= button_to 'Edit', edit_restaurant_path(@restaurant) %>
+<%= button_to 'Back', restaurants_url, method: :get %>
+</div>
