@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<table>
+<table class="center">
   <thead>
     <tr>
       <th>Name</th>
@@ -13,14 +13,14 @@
 
   <tbody>
     <% @restaurants.each do |restaurant| %>
-      <tr>
+      <tr class="<%= cycle('even', 'odd') %>">
         <td><%= restaurant.name %></td>
         <td><%= restaurant.location %></td>
         <td><%= restaurant.upvotes %></td>
         <td><%= restaurant.downvotes %></td>
-        <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', restaurant, class:"links" %></td>
+        <td><%= link_to 'Edit', edit_restaurant_path(restaurant), class:"links" %></td>
+        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class:"links" %></td>
       </tr>
     <% end %>
   </tbody>

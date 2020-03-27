@@ -31,6 +31,34 @@
    text-align: center;
  }
  
+ th {
+   background: #000000;
+   color: #FFFFFF;
+      border: 1px solid white;
+ }
+ 
+ table.center {
+   margin-right: auto;
+   margin-left: auto;
+ }
+ 
+ td {
+   border: 1px solid white;
+   font-weight: bold;
+ }
+ 
+ .links {
+   color: #FFFFFF;
+ }
+ 
+ .links:hover {
+   background: #AA00AA;
+ }
+ 
+ .links:visited {
+   color: #BBBBBB;
+ }
+ 
  .leftText {
    color: #2E8B86;
  }
@@ -40,11 +68,20 @@
  }
  
  .even {
-   background: #FFFFFF;
+   width: 100%;
+   background: #000000;
+   color: #2E8B86;
+ }
+ 
+ #notice {
+   color: #00FAFA;
+   font-weight: bold;
  }
  
  .odd {
+   width: 100%;
    background: #2E8B86;
+   color: #000000;
  }
  
  .mainHeader {
