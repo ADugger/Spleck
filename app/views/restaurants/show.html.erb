@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 <div class="newRestaurant">
 <p class="leftText">
-  <strong>Name:</strong>
+  <strong>Name:&nbsp;</strong>
   <%= @restaurant.name %>
 </p>
 
 <p class="leftText">
-  <strong>Location:</strong>
+  <strong>Location:&nbsp;</strong>
   <%= @restaurant.location %>
 </p>
 
 <p class="leftText">
-  <strong>Will Split:</strong>
+  <strong>Will Split:&nbsp;</strong>
   <%= (@restaurant.upvotes.present? ? @restaurant.upvotes : 0) %> 
 </p>
 
 <p class="leftText">
-  <strong>Won't Split:</strong>
+  <strong>Won't Split:&nbsp;</strong>
   <%= (@restaurant.downvotes.present? ? @restaurant.downvotes : 0) %>
 </p>
 
