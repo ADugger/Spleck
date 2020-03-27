@@ -41,8 +41,21 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
   test "should destroy restaurant" do
     assert_difference('Restaurant.count', -1) do
       delete restaurant_url(@restaurant)
-    end
-
+    end    
     assert_redirected_to restaurants_url
+  end
+  
+  test "should increase upvotes of restaurant" do
+    assert_difference(@restaurant.upvotes.to_s, 1) do
+      post upvote_url(@restaurant)  
+    end
+    assert_redirected_to restaurant_url(@restaurant)
+  end
+  
+  test "should increase downvotes of restaurant" do
+    assert_difference(@restaurant.downvotes.to_s, 1) do
+      post downvote_url(@restaurant)  
+    end
+    assert_redirected_to restaurant_url(@restaurant)
   end
 end
