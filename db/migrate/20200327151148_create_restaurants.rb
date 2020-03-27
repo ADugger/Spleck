@@ -3,8 +3,8 @@ class CreateRestaurants < ActiveRecord::Migration[5.2]
     create_table :restaurants do |t|
       t.string :name
       t.string :location
-      t.int :upvotes
-      t.int :downvotes
+      t.integer :upvotes
+      t.integer :downvotes
 
       t.timestamps
     end

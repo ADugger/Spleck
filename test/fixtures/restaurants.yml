@@ -3,11 +3,11 @@
 one:
   name: MyString
   location: MyString
-  upvotes: 
-  downvotes: 
+  upvotes: 1
+  downvotes: 1
 
 two:
   name: MyString
   location: MyString
-  upvotes: 
-  downvotes: 
+  upvotes: 1
+  downvotes: 1
