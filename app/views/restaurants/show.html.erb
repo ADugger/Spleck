@@ -12,12 +12,12 @@
 
 <p class="leftText">
   <strong>Will Split:</strong>
-  <%= @restaurant.upvotes %>
+  <%= (@restaurant.upvotes.present? ? @restaurant.upvotes : 0) %> 
 </p>
 
 <p class="leftText">
   <strong>Won't Split:</strong>
-  <%= @restaurant.downvotes %>
+  <%= (@restaurant.downvotes.present? ? @restaurant.downvotes : 0) %>
 </p>
 
 <%= button_to 'Will Split', upvote_path(@restaurant) %>
