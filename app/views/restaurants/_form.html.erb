@@ -10,28 +10,22 @@
       </ul>
     </div>
   <% end %>
+  <div class="newRestaurant">
+    <div class="field">
+      <%= form.label "Restaurant Name (required)", class:"leftText" %>
+      <%= form.text_field :name %>
+    </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+    <div class="field">
+      <%= form.label "Restaurant Location (required)", class:"leftText" %>
+      <%= form.text_field :location %>
+    </div>
 
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
-  </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+    
+    <%= button_to "Cancel", restaurants_path %>
 
-  <div class="field">
-    <%= form.label :upvotes %>
-    <%= form.number_field :upvotes %>
-  </div>
-
-  <div class="field">
-    <%= form.label :downvotes %>
-    <%= form.number_field :downvotes %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
   </div>
 <% end %>
