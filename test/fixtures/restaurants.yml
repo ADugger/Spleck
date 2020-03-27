@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  location: MyString
-  upvotes: 1
-  downvotes: 1
+  name: In-and-Out Burger
+  location: California
+  upvotes: 3
+  downvotes: 4
 
 two:
-  name: MyString
-  location: MyString
-  upvotes: 1
-  downvotes: 1
+  name: Arby's
+  location: Florida
+  upvotes: 5
+  downvotes: 6
