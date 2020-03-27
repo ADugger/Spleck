@@ -14,6 +14,7 @@
  *= require_self
  */
  
+@import "bootstrap";
    
  body {
    width: 100%;
@@ -96,13 +97,3 @@
  .mainHeader {
     margin-bottom: 3em;
  }
- 
- .searchBar {
-   margin-top: 3em;
-   margin-bottom: 3em;
- }
- 
- .btnCancel {
-    margin-right: auto;
- }
- 

@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<div class="searchBar">
+  <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+    <%= f.input :query, input_html: {value: ""} %>
+    <%= f.submit "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
 <table class="center">
   <thead>
     <tr>

@@ -5,6 +5,12 @@ class RestaurantsController < ApplicationController
   # GET /restaurants.json
   def index
     @restaurants = Restaurant.all
+    @search = params["search"]
+    if @search.present?
+      @query = @search["query"]
+      @restaurant = Restaurant.where("name ILIKE ?", "%#{@query}%")
+      
+    end
   end
 
   # GET /restaurants/1

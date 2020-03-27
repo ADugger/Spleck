@@ -23,9 +23,10 @@
 
     <div class="actions">
       <%= form.submit %>
-    </div>
-    
-    <%= button_to "Cancel", restaurants_path %>
+    </div>    
 
   </div>
 <% end %>
+<div class="newRestaurant">
+  <%= button_to "Cancel", restaurants_url, method: :get, class:"btnCancel" %>
+</div>
