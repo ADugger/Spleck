@@ -46,14 +46,14 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
   end
   
   test "should increase upvotes of restaurant" do
-    assert_difference '@restaurant.upvotes' do
+    assert_difference '@restaurant.reload.upvotes' do
       post upvote_url(@restaurant)
       assert_redirected_to restaurant_url(@restaurant)      
     end
   end
   
   test "should increase downvotes of restaurant" do
-    assert_difference '@restaurant.downvotes' do
+    assert_difference '@restaurant.reload.downvotes' do
       post downvote_url(@restaurant)
       assert_redirected_to restaurant_url(@restaurant)
     end
