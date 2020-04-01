@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  
+  before_action :authenticate_user!, only: [:voteable, :edit, :update, :destroy, :upvote, :downvote]
   # GET /restaurants
   # GET /restaurants.json
   def index
@@ -13,6 +13,8 @@ class RestaurantsController < ApplicationController
     end
   end
   
+  def voteable    
+  end
   
   def upvote
     @restaurant.upvotes = (@restaurant.upvotes.present? ? @restaurant.upvotes : 0) + 1

@@ -72,6 +72,11 @@
    color: #000000;
  }
  
+ .centerText {
+   text-align: center;
+   color: #000000;
+ }
+ 
  .even {
    width: 100%;
    background: #000000;
@@ -107,5 +112,14 @@
  
  .btnCancel {
     margin-right: auto;
+ }
+ 
+ .deviseForm {
+   text-align: left;
+   color: #2EBBB6;
+ }
+ 
+ .deviseLeft {
+   text-align: left;
  }
  
