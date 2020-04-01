@@ -1,48 +1,55 @@
 <p id="notice"><%= notice %></p>
 
-<div class="searchBar">
-  <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-    <%= f.input :query, input_html: {value: ""}, inline_label: 'Search by name or location' %>
-    <%= f.submit "Search", class: "btn btn-primary" %>
-  <% end %>
-</div>
-
-<table class="center">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Location</th>
-      <th>Will Split</th>
-      <th>Won't Split</th>
-      <% if user_signed_in? %>
-        <th colspan="3"></th>
-      <% else %>
-        <th colspan="1"></th>      
-      <% end %>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @restaurants.each do |restaurant| %>
-      <tr class="<%= cycle('even', 'odd') %>">
-        <td><%= restaurant.name %></td>
-        <td><%= restaurant.location %></td>
-        <td><%= (restaurant.upvotes.present? ? restaurant.upvotes : 0) %></td>
-        <td><%= (restaurant.downvotes.present? ? restaurant.downvotes : 0) %></td>
+<% if @restaurants.empty? %>
+  <p>There are no restaurants currently.&nbsp;&nbsp;&nbsp;<br>
+     <% if user_signed_in? %>
+       Add the first entry!&nbsp;&nbsp;</p>
+     <% else %>
+       Log in to add the first entry!&nbsp;&nbsp;</p>
+     <% end %>
+<% else %>
+  <div class="searchBar">
+    <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+      <%= f.input :query, input_html: {value: ""}, inline_label: 'Search by name or location' %>
+      <%= f.submit "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <table class="center">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Will Split</th>
+        <th>Won't Split</th>
         <% if user_signed_in? %>
-          <td><%= link_to 'Vote', restaurant, class:"links" %></td>
-          <td><%= link_to 'Edit', edit_restaurant_path(restaurant), class:"links" %></td>
-          <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class:"links" %></td>
+          <th colspan="3"></th>
         <% else %>
-          <td><%= link_to 'Show', restaurant, class:"links" %></td>
+          <th colspan="1"></th>      
         <% end %>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @restaurants.each do |restaurant| %>
+        <tr class="<%= cycle('even', 'odd') %>">
+          <td><%= restaurant.name %></td>
+          <td><%= restaurant.location %></td>
+          <td><%= (restaurant.upvotes.present? ? restaurant.upvotes : 0) %></td>
+          <td><%= (restaurant.downvotes.present? ? restaurant.downvotes : 0) %></td>
+          <% if user_signed_in? %>
+            <td><%= link_to 'Vote', restaurant, class:"links" %></td>
+            <td><%= link_to 'Edit', edit_restaurant_path(restaurant), class:"links" %></td>
+            <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class:"links" %></td>
+          <% else %>
+            <td><%= link_to 'Show', restaurant, class:"links" %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
+  <br>
+<% end %>
 <% if user_signed_in? %>
   <%= button_to 'New Restaurant', new_restaurant_path, method: :get, class:"btnCancel" %>
   <%= button_to 'Logout', destroy_user_session_path, method: :delete, class:"btnCancel" %>

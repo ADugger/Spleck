@@ -52,6 +52,14 @@
    font-weight: bold;
  }
  
+ p {
+    color: #0000FD;
+   font-weight: bold;
+   margin-left: auto;
+   margin-right: auto;
+   -webkit-text-stroke: 0.03em black;
+ }
+ 
  .links {
    color: #FFFFFF;
  }
@@ -122,4 +130,5 @@
  .deviseLeft {
    text-align: left;
  }
+
  
