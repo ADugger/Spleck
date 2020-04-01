@@ -34,8 +34,8 @@
         <tr class="<%= cycle('even', 'odd') %>">
           <td><%= restaurant.name %></td>
           <td><%= restaurant.location %></td>
-          <td><%= (restaurant.upvotes.present? ? restaurant.upvotes : 0) %></td>
-          <td><%= (restaurant.downvotes.present? ? restaurant.downvotes : 0) %></td>
+          <td><%= restaurant.votes.where(votetype: 1).count %></td>
+          <td><%= restaurant.votes.where(votetype: -1).count %></td>
           <% if user_signed_in? %>
             <td><%= link_to 'Vote', restaurant, class:"links" %></td>
             <td><%= link_to 'Edit', edit_restaurant_path(restaurant), class:"links" %></td>

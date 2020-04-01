@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   root to: "restaurants#index"
   
   post 'restaurants/:id/edit', to: 'restaurants#edit', as: 'edit'
-  post 'restaurants/:id/upvote', to: 'restaurants#upvote', as: 'upvote'
-  post 'restaurants/:id/downvote', to: 'restaurants#downvote', as: 'downvote'
+  post 'restaurants/:id/upvote', to: 'votes#upvote', as: 'upvote'
+  post 'restaurants/:id/downvote', to: 'votes#downvote', as: 'downvote'
 end

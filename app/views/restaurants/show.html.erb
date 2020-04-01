@@ -12,12 +12,12 @@
 
 <p class="leftText">
   <strong>Will Split:&nbsp;</strong>
-  <%= (@restaurant.upvotes.present? ? @restaurant.upvotes : 0) %> 
+  <%= @restaurant.votes.where(votetype: 1).count %> 
 </p>
 
 <p class="leftText">
   <strong>Won't Split:&nbsp;</strong>
-  <%= (@restaurant.downvotes.present? ? @restaurant.downvotes : 0) %>
+  <%= @restaurant.votes.where(votetype: -1).count %>
 </p>
 
 <% if user_signed_in? %>
