@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   
   root to: "restaurants#index"
   
-  get 'restaurants/:id/voteable', to: 'restaurants#voteable', as: 'voteable'
   post 'restaurants/:id/edit', to: 'restaurants#edit', as: 'edit'
   post 'restaurants/:id/upvote', to: 'restaurants#upvote', as: 'upvote'
   post 'restaurants/:id/downvote', to: 'restaurants#downvote', as: 'downvote'

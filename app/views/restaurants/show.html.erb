@@ -20,8 +20,10 @@
   <%= (@restaurant.downvotes.present? ? @restaurant.downvotes : 0) %>
 </p>
 
-<%= button_to 'Will Split', upvote_path(@restaurant) %>
-<%= button_to 'Won\'t Split', downvote_path(@restaurant) %>
-<%= button_to 'Edit', edit_restaurant_path(@restaurant) %>
+<% if user_signed_in? %>
+  <%= button_to 'Will Split', upvote_path(@restaurant) %>
+  <%= button_to 'Won\'t Split', downvote_path(@restaurant) %>
+  <%= button_to 'Edit', edit_restaurant_path(@restaurant) %>
+<% end %>
 <%= button_to 'Back', restaurants_url, method: :get %>
 </div>
