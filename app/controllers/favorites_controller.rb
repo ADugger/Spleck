@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
-  before_action :authenticate_user!, only: [:add_favorite, :remove_favorite, :favorite_restaurant]  
+  before_action :authenticate_user!, only: [:add_favorite, :remove_favorite]  
   def add_favorite
      @user = current_user
      @restaurant = Restaurant.find(params[:id])

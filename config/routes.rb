@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :comments
   resources :favorites
   devise_for :users
   resources :restaurants
@@ -13,4 +12,5 @@ Rails.application.routes.draw do
   post 'restaurants/:id/addfave', to: 'favorites#add_favorite', as: 'addfave'
   post 'restaurants/:id/removefave', to: 'favorites#remove_favorite', as: 'removefave'
   get  'users/account_summary', to: 'user#show', as: 'account_summary'
+  post 'restaurants/:id/comment/:body', to: 'comments#add_comment', as: 'comment'
 end

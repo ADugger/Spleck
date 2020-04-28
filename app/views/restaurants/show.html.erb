@@ -15,9 +15,8 @@
     <p class="leftText">
       <strong>This restaurant is a favorite!</strong>
     </p>
-  <% end %>
+  <% end %>        
 <% end%>
-
 <p class="leftText">
   <strong>Will Split:&nbsp;</strong>
   <%= @restaurant.votes.where(votetype: 1).count %> 
@@ -29,6 +28,15 @@
 </p>
 
 <% if user_signed_in? %>
+  <%= form_for :comment, :url => comment_path(@restaurant, :body) do |form| %>    
+    <div class="leftText">
+      <%= form.label "Your comment about this restaurant (required)" %>
+      <%= text_field_tag 'msg', '', size: 20 %>
+   </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>            
   <% if @restaurant.favorites.where(user: current_user, restaurant: @restaurant).count > 0 %>
     <%= button_to 'Remove Favorite', removefave_path(@restaurant) %>
   <% else %>  
@@ -39,4 +47,12 @@
   <%= button_to 'Edit', edit_restaurant_path(@restaurant) %>
 <% end %>
 <%= button_to 'Back', restaurants_url, method: :get %>
+<% if user_signed_in? %>
+  <% if @restaurant.comments.where(user: current_user, restaurant: @restaurant).count > 0 %>
+    <br><br><h3 class="leftText">Your Recent Comments</h3>
+    <% @restaurant.comments.order(created_at: :desc).limit(5).where(user: current_user, restaurant: @restaurant).each do |comment| %>
+      <p class="leftText"><%= comment.body.truncate(100, omission: '...')%></p>
+    <% end %>
+  <% end %>
+<% end %>
 </div>
