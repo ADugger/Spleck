@@ -9,4 +9,9 @@ class CreateRestaurants < ActiveRecord::Migration[5.2]
       t.timestamps
     end
   end 
+  
+  def up
+    remove_column :restaurants, :upvotes
+    remove_column :restaurants, :downvotes
+  end
 end
