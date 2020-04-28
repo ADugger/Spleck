@@ -36,5 +36,34 @@
   <h3 class="leftText">Go mark some favorite restaurants!</h3>
 <% end %>
 
+
+<% if @user.comments.where(user: current_user).count > 0 %>
+  <br><br><h3 class="leftText">Your Comments</h3>  
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Comment</th>    
+        <th colspan="1"></th>      
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @user.comments.order(created_at: :desc).where(user: current_user).each do |comment| %>
+        <tr class="<%= cycle('even', 'odd') %>">
+          <td><%= comment.get_restaurant.name %></td>
+          <td><%= comment.get_restaurant.location %></td>
+          <td><%= comment.body.truncate(100) %></td>
+          <td><%= link_to 'Show', comment.get_restaurant, class:"links" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>      
+<% end %>
+
+
+
 <%= button_to 'Back', restaurants_url, method: :get, class:"btnCancel" %>
 </div>

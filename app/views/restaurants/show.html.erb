@@ -31,7 +31,7 @@
   <%= form_for :comment, :url => comment_path(@restaurant, :body) do |form| %>    
     <div class="leftText">
       <%= form.label "Your comment about this restaurant (required)" %>
-      <%= text_field_tag 'msg', '', size: 20 %>
+      <%= text_field_tag 'msg', '', maxlength: 100, size: 20 %>
    </div>
     <div class="actions">
       <%= form.submit %>
@@ -51,7 +51,7 @@
   <% if @restaurant.comments.where(user: current_user, restaurant: @restaurant).count > 0 %>
     <br><br><h3 class="leftText">Your Recent Comments</h3>
     <% @restaurant.comments.order(created_at: :desc).limit(5).where(user: current_user, restaurant: @restaurant).each do |comment| %>
-      <p class="leftText"><%= comment.body.truncate(100, omission: '...')%></p>
+      <p class="leftText"><%= comment.body.truncate(100)%></p>
     <% end %>
   <% end %>
 <% end %>
