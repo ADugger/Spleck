@@ -3,9 +3,9 @@
 one:
   user: one
   restaurant: one
-  body: MyText
+  body: Neat place to eat
 
 two:
   user: two
   restaurant: two
-  body: MyText
+  body: A lovely environment
