@@ -42,6 +42,11 @@
       border: 1px solid white;
  }
  
+ .center {
+   margin-right: auto;
+   margin-left: auto;
+ }
+
  table.center {
    margin-right: auto;
    margin-left: auto;
@@ -50,6 +55,8 @@
  td {
    border: 1px solid white;
    font-weight: bold;
+   margin-right: auto;
+   margin-left: auto;
  }
  
  p {
@@ -89,6 +96,8 @@
    width: 100%;
    background: #000000;
    color: #2EBBB6;
+   margin-right: auto;
+   margin-left: auto;
  }
  
  .newRestaurant {
@@ -104,6 +113,8 @@
    width: 100%;
    background: #2EBBB6;
    color: #000000;
+   margin-right: auto;
+   margin-left: auto;
  }
  
  .mainHeader {

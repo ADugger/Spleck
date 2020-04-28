@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   post 'restaurants/:id/downvote', to: 'votes#downvote', as: 'downvote'
   post 'restaurants/:id/addfave', to: 'favorites#add_favorite', as: 'addfave'
   post 'restaurants/:id/removefave', to: 'favorites#remove_favorite', as: 'removefave'
+  get  'users/account_summary', to: 'user#show', as: 'account_summary'
 end

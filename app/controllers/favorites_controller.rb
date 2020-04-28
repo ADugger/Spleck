@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
-  before_action :authenticate_user!, only: [:add_favorite, :remove_favorite]  
+  before_action :authenticate_user!, only: [:add_favorite, :remove_favorite, :favorite_restaurant]  
   def add_favorite
      @user = current_user
      @restaurant = Restaurant.find(params[:id])
@@ -12,8 +12,8 @@ class FavoritesController < ApplicationController
      @restaurant = Restaurant.find(params[:id])
      @favorite = @restaurant.favorites.where(:user => @user, :restaurant => @restaurant).first
      if @favorite
-       @restaurant.favorites.delete(@favorite)
+       @favorite.destroy
      end
-     redirect_to restaurant_path(@restaurant)
-  end 
+     redirect_to restaurant_path(@restaurant)         
+  end   
 end

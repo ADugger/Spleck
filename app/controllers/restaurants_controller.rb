@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :authenticate_user!, only: [:edit, :update, :destroy, :upvote, :downvote]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
   # GET /restaurants
   # GET /restaurants.json
   def index
@@ -11,29 +11,7 @@ class RestaurantsController < ApplicationController
       @restaurants = Restaurant.where("name LIKE ? or location LIKE ?", "%#{@query}%", "%#{@query}%")
       
     end
-  end
-  
-  def upvote
-    @restaurant.upvotes = (@restaurant.upvotes.present? ? @restaurant.upvotes : 0) + 1
-    respond_to do |format|
-      if @restaurant.save
-        format.html { redirect_to @restaurant, notice: 'Vote registered successfully.' }
-      else
-        format.html { render :show }
-      end
-    end
-  end
-  
-  def downvote
-    @restaurant.downvotes = (@restaurant.downvotes.present? ? @restaurant.downvotes : 0) + 1
-    respond_to do |format|
-      if @restaurant.save
-        format.html { redirect_to @restaurant, notice: 'Vote registered successfully.' }
-      else
-        format.html { render :show }
-      end    
-    end
-  end
+  end    
   
   # GET /restaurants/1
   # GET /restaurants/1.json

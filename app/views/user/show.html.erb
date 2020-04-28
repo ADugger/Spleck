@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<div class="newRestaurant">
+
+
+<h2>USER SUMMARY PAGE</h2>
+
+
+<% if @user.favorites.count > 0 %>
+  <h3 class="leftText">Favorite Restaurants</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Will Split</th>
+        <th>Won't Split</th>      
+        <th colspan="1"></th>      
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @user.favorites.each do |favorite| %>
+        <tr class="<%= cycle('even', 'odd') %>">
+          <td><%= favorite.get_restaurant.name %></td>
+          <td><%= favorite.get_restaurant.location %></td>
+          <td align="center"><%= favorite.get_restaurant.votes.where(votetype: 1).count %></td>
+          <td align="center"><%= favorite.get_restaurant.votes.where(votetype: -1).count %></td>
+          <td><%= link_to 'Show', favorite.get_restaurant, class:"links" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+<% else %>
+  <h3 class="leftText">Go mark some favorite restaurants!</h3>
+<% end %>
+
+<%= button_to 'Back', restaurants_url, method: :get, class:"btnCancel" %>
+</div>

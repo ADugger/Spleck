@@ -52,6 +52,7 @@
 <% end %>
 <% if user_signed_in? %>
   <%= button_to 'New Restaurant', new_restaurant_path, method: :get, class:"btnCancel" %>
+  <%= button_to 'Account Summary', account_summary_path, method: :get, class:"btnCancel" %>
   <%= button_to 'Logout', destroy_user_session_path, method: :delete, class:"btnCancel" %>
 <% else %>
   <%= button_to 'Login', new_user_session_path, class:"btnCancel" %>
