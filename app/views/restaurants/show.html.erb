@@ -10,6 +10,14 @@
   <%= @restaurant.location %>
 </p>
 
+<% if user_signed_in? %>
+  <% if @restaurant.favorites.where(user: current_user, restaurant: @restaurant).count > 0 %>
+    <p class="leftText">
+      <strong>This restaurant is a favorite!</strong>
+    </p>
+  <% end %>
+<% end%>
+
 <p class="leftText">
   <strong>Will Split:&nbsp;</strong>
   <%= @restaurant.votes.where(votetype: 1).count %> 
@@ -21,6 +29,11 @@
 </p>
 
 <% if user_signed_in? %>
+  <% if @restaurant.favorites.where(user: current_user, restaurant: @restaurant).count > 0 %>
+    <%= button_to 'Remove Favorite', removefave_path(@restaurant) %>
+  <% else %>  
+    <%= button_to 'Add Favorite', addfave_path(@restaurant) %>
+  <% end %>
   <%= button_to 'Will Split', upvote_path(@restaurant) %>
   <%= button_to 'Won\'t Split', downvote_path(@restaurant) %>
   <%= button_to 'Edit', edit_restaurant_path(@restaurant) %>

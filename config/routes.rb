@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   post 'restaurants/:id/edit', to: 'restaurants#edit', as: 'edit'
   post 'restaurants/:id/upvote', to: 'votes#upvote', as: 'upvote'
   post 'restaurants/:id/downvote', to: 'votes#downvote', as: 'downvote'
+  post 'restaurants/:id/addfave', to: 'favorites#add_favorite', as: 'addfave'
+  post 'restaurants/:id/removefave', to: 'favorites#remove_favorite', as: 'removefave'
 end
